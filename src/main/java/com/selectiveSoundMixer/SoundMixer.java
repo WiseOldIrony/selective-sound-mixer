@@ -39,9 +39,4 @@ class SoundMixer implements Comparable<SoundMixer>
 	{
 		return this.name.compareTo(other.name);
 	}
-
-	public boolean equals(SoundMixer other)
-	{
-		return id == other.getId();
-	}
 }

@@ -118,11 +118,7 @@ public class SelectiveSoundMixerPlugin extends Plugin
 		if (foundSoundMix != null) {
 			log.debug("Area Sound ID Found: " + soundId + " " + foundSoundMix.getVolume());
 			areaSoundEffectPlayed.consume();
-			Preferences preferences = client.getPreferences();
-			int previousVolume = preferences.getSoundEffectVolume();
-			preferences.setSoundEffectVolume(foundSoundMix.getVolume());
-			client.playSoundEffect(foundSoundMix.getId(), foundSoundMix.getVolume());
-			preferences.setSoundEffectVolume(previousVolume);
+			playSound(foundSoundMix);
 		}
 	}
 
@@ -134,12 +130,17 @@ public class SelectiveSoundMixerPlugin extends Plugin
 		if (foundSoundMix != null) {
 			log.debug("Sound Effect ID Found: " + soundId + " " + foundSoundMix.getVolume());
 			soundEffectPlayed.consume();
-			Preferences preferences = client.getPreferences();
-			int previousVolume = preferences.getSoundEffectVolume();
-			preferences.setSoundEffectVolume(foundSoundMix.getVolume());
-			client.playSoundEffect(foundSoundMix.getId(), foundSoundMix.getVolume());
-			preferences.setSoundEffectVolume(previousVolume);
+			playSound(foundSoundMix);
 		}
+	}
+
+	private void playSound(SoundMixer soundMixer)
+	{
+		Preferences preferences = client.getPreferences();
+		int previousVolume = preferences.getSoundEffectVolume();
+		preferences.setSoundEffectVolume(soundMixer.getVolume());
+		client.playSoundEffect(soundMixer.getId(), soundMixer.getVolume());
+		preferences.setSoundEffectVolume(previousVolume);
 	}
 
 	@Provides
