@@ -1,13 +1,13 @@
-package com.example;
+package com.selectiveSoundMixer;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;
 
-public class ExamplePluginTest
+public class PluginLauncher
 {
 	public static void main(String[] args) throws Exception
 	{
-		ExternalPluginManager.loadBuiltin(ExamplePlugin.class);
+		ExternalPluginManager.loadBuiltin(com.selectiveSoundMixer.SelectiveSoundMixerPlugin.class);
 		RuneLite.main(args);
 	}
 }
