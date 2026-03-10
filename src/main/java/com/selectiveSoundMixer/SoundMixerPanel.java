@@ -13,22 +13,16 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.components.FlatTextField;
-import net.runelite.client.ui.components.TitleCaseListCellRenderer;
-import net.runelite.client.ui.components.colorpicker.RuneliteColorPicker;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.SwingUtil;
 
@@ -337,7 +331,7 @@ class SoundMixerPanel extends JPanel
 		});
 
 		deleteLabel.setIcon(DELETE_ICON);
-		deleteLabel.setToolTipText("Delete Sound mMix");
+		deleteLabel.setToolTipText("Delete Sound Mix");
 		deleteLabel.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -431,8 +425,6 @@ class SoundMixerPanel extends JPanel
 	{
 		soundMixer.setId((int) spinnerSoundId.getValue());
 		soundMixer.setVolume((int) spinnerVolume.getValue());
-
-		updateVisibility();
 
 		plugin.saveSoundMixers();
 	}
